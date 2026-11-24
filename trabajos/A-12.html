@@ -1,0 +1,45 @@
+<h2>Aplicación del LEL en un dominio técnico</h2><p><strong>1)</strong></p>
+ <p><strong>Introducción</strong></p>
+ <p>Gil, Arias Figueroa y Oliveros (Universidad Nacional de Salta y Universidad Nacional de La Matanza) presentaron este trabajo en el III Workshop de Engenharia de Requisitos (WER 2000). Cuentan cómo construyeron el LEL del Sistema de Registración y Producción del Instituto de Hemoterapia de la Provincia de Buenos Aires. El Instituto depende del Ministerio de Salud provincial, recibe unas 40.000 donaciones por año y provee sangre y hemocomponentes a centros de salud públicos y privados.</p>
+ <p>Lo que hace interesante el caso es el lenguaje. Los ingenieros de requerimientos no conocían el dominio, y el personal usaba términos tan técnicos (hemocomponente, screening, serología positiva) que algunos ni siquiera los manejan otros médicos. Las experiencias publicadas hasta ese momento con LEL eran en dominios donde el analista ya sabía algo del vocabulario. Acá había que armarlo desde cero, y dar por hecho que una palabra significaba lo mismo que en el habla común era riesgoso.</p>
+ <p>Para armar el Universo del Discurso hicieron una entrevista preliminar con el gerente administrativo, que es médico hematólogo, y dos entrevistas sectoriales grabadas. En la primera, uno de los investigadores hizo todo el recorrido como si fuera un donante. En la segunda se repartieron los roles: uno trataba de entender el problema y el otro anotaba los símbolos candidatos. Después siguieron el modelo de seis etapas de Hadad: entrevistas, lista de símbolos, clasificación, descripción, validación con el cliente y control del LEL.</p>
+ <br>
+ <p><strong>Ejemplos de símbolos hallados</strong></p>
+ <p>Sujeto: Médico</p>
+ <p>Noción: médico especialista en hematología, encargado de administrar cada sector del Instituto.</p>
+ <p>Impacto:</p>
+ <ul>
+  <li>El médico realiza la encuesta al donante en el consultorio.</li>
+  <li>El médico firma la ficha de donación.</li>
+  <li>El médico capacita al personal técnico de cada sector.</li>
+  <li>El médico controla la calidad del producto.</li>
+ </ul>
+ <br>
+ <p>Objeto: Ficha de donación</p>
+ <p>Noción: papel preimpreso, obligatorio para todo donante. Le sirve al médico para decidir si el donante puede donar y si pertenece a algún grupo de riesgo.</p>
+ <p>Impacto:</p>
+ <ul>
+  <li>La Sala de Recepción completa la ficha de donación con los datos personales y el tipo de donación.</li>
+  <li>El médico firma la ficha de donación.</li>
+  <li>El donante firma la ficha de donación para aceptar las condiciones de extracción.</li>
+  <li>Un técnico de la Sala de Hemodonación registra los signos clínicos en la ficha de donación.</li>
+ </ul>
+ <br>
+ <p>Verbo: Descarte de extracción</p>
+ <p>Noción: evitar que done un donante con signos clínicos inaceptables o por cuestiones prácticas. Se hace en la Sala de Hemodonación.</p>
+ <p>Impacto:</p>
+ <ul>
+  <li>La Sala de Hemodonación descarta temporalmente al donante.</li>
+  <li>La Sala de Hemodonación registra el descarte en la ficha de donación.</li>
+ </ul>
+ <br>
+ <p><strong>Conclusiones</strong></p>
+ <p>El caso muestra que el LEL sirve aunque el analista no sepa nada del dominio. La versión final tuvo 51 símbolos, y el 22% eran términos específicos. Al principio los autores pensaban dejarlos afuera por demasiado técnicos. Para mí ahí está lo principal: esas palabras eran justamente las que separaban el lenguaje del usuario del de los desarrolladores, y sin ellas no se entendía el resto. Algo parecido pasó con “inmuno”. Los analistas lo tomaban como un símbolo aparte, y era el nombre interno de un laboratorio que ya tenían en la lista.</p>
+ <p>El modelo de seis etapas no se respetó tal cual. Las entrevistas y la lista de símbolos se hicieron juntas, igual que la clasificación y la descripción, y el proceso quedó en cuatro etapas. Los autores lo explican porque, con un vocabulario desconocido, había que volver todo el tiempo a la lista ya armada. Los templates por tipo de símbolo dieron entradas homogéneas y ayudaron a encontrar inconsistencias en el control.</p>
+ <p>Quedaron cosas pendientes. El LEL se hizo a mano y después se pasó a un editor de texto, y eso hizo lenta la validación. Por eso proponen una herramienta CASE con hipertexto que marque el estado de cada símbolo (completo, incompleto o con dudas) y que genere escenarios a partir del LEL. También reconocen que el éxito no se midió de forma objetiva: la evidencia que tienen es que los usuarios dijeron varias veces que los investigadores conocían bien el problema.</p>
+ <br>
+ <p><strong>2)</strong></p>
+ <p>“<strong>Elicitación asistida por IA en Ingeniería de Requisitos</strong>”. María Inés Bertín, Gerardo Riera, Gladys Kaplan y Gabriel Blanco (Universidad Nacional de La Matanza). (https://sedici.unlp.edu.ar/handle/10915/195992)</p>
+ <br>
+ <p>El trabajo parte de un problema que también aparece en el caso del Instituto de Hemoterapia. El LEL se arma a partir de desgrabaciones de entrevistas abiertas, y si la entrevista viene con omisiones o ambigüedades, esos defectos pasan al LEL. Los autores los llaman DEO (defectos, errores y omisiones). Proponen usar ChatGPT para analizar la desgrabación de la primera entrevista, encontrar los DEO y armar una guía de preguntas para una segunda entrevista. La IA no construye el LEL: eso lo sigue haciendo el ingeniero de requisitos, que además valida lo que marca la herramienta.</p>
+ <p>Lo aplicaron en dos casos: una petroquímica y un sistema de remitos en línea para servicios de autoelevadores. En la primera entrevista encontraron 15 DEO en la petroquímica, con un LEL inicial de 35 símbolos, y 23 en los remitos, con 26 símbolos. Después de la segunda entrevista, el LEL de los dos casos quedó con más símbolos bien definidos y menos ambigüedades. Los autores aclaran que los resultados son preliminares, porque son solo dos casos y todavía no tienen métricas formales.</p>

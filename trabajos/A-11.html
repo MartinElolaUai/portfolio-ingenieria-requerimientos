@@ -1,0 +1,48 @@
+<h2>Autoevaluación de cierre: Clase 11</h2><p class="intro">Respuestas de la autoevaluación individual sobre diccionario, glosario, ontología y LEL.</p><h3>1 · Diccionario, glosario y ontología</h3><p>Diccionario: </p>
+ <p>ticket (tique)</p>
+ <ol>
+  <li>Comprobante impreso que entrega un comercio &quot;x&quot; al cobrar una compra. </li>
+  <li>Boleta / Entrada que permite el ingreso a un evento o el uso de un servicio en particular. </li>
+  <li>Pedido registrado en un sistema de soporte para atender un problema o solicitud. </li>
+ </ol>
+ <br>
+ <p>Glosario: </p>
+ <p>Ticket: registro que se crea en el sistema de mesa de ayuda cada vez que un usuario informa un incidente o hace un pedido. Tiene un número único, se asigna a un técnico y pasa por distintos estados. Una consulta que se resuelve por teléfono en el momento y no queda registrada no es un ticket.</p>
+ <br>
+ <p>Ontología: </p>
+ <p>Concepto: Ticket</p>
+ <p>Es un tipo de: Solicitud de servicio</p>
+ <p>Subtipos: Incidente (algo dejó de funcionar) y Pedido (alta de usuario, instalación de software, permiso de acceso)</p>
+ <p>Atributos: número (único), fecha de apertura, descripción, prioridad (baja, media, alta o crítica), estado (abierto, en curso, resuelto o cerrado)</p>
+ <p>Relaciones:</p>
+ <ul>
+  <li>lo abre exactamente un Usuario</li>
+  <li>se asigna a ningún Técnico o a uno solopertenece a una Categoría</li>
+  <li>tiene cero o más Comentarios</li>
+  <li>puede vincularse con otros Tickets (es duplicado de, fue causado por)</li>
+ </ul>
+ <p>Restricciones: </p>
+ <ul>
+  <li>un Ticket cerrado no se puede reasignar</li>
+  <li>todo Ticket resuelto tiene al menos un Comentario con la solución</li>
+ </ul><h3>2 · Idioma, lenguaje y dialecto</h3><p>Idioma: lengua propia de un pueblo o nación, como el español o el inglés.</p>
+ <br>
+ <p>Lenguaje: capacidad de comunicarse mediante un sistema de signos, que pueden ser palabras, gestos o símbolos.</p>
+ <br>
+ <p>Dialecto: variedad de un idioma que se habla en una región determinada, como el español rioplatense.</p>
+ <br>
+ <p>Argot: vocabulario propio de un grupo social o de una profesión, como la jerga de los médicos o el lunfardo.</p><h3>3 · LEL de una boletería</h3><p>Cliente (sujeto)</p>
+ <p>Noción: persona que reserva y compra tickets.</p>
+ <p>Impacto: reserva un ticket. Paga con tarjeta de crédito o paga en efectivo.</p>
+ <br>
+ <p>Pagar con tarjeta de crédito (verbo)</p>
+ <p>Noción: el cliente paga el ticket con una tarjeta de crédito.</p>
+ <p>Impacto: el sistema valida la tarjeta y registra el pago. El ticket reservado pasa a pagado.</p>
+ <br>
+ <p>Pagar en efectivo (verbo)</p>
+ <p>Noción: el cliente paga el ticket en efectivo en la caja.</p>
+ <p>Impacto: el cajero registra el pago y entrega el comprobante. El ticket reservado pasa a pagado.</p>
+ <br>
+ <p>Ticket reservado (estado)</p>
+ <p>Noción: ticket que el cliente apartó y todavía no pagó.</p>
+ <p>Impacto: nadie más puede comprarlo. Si el cliente no paga en el plazo, se libera.</p>

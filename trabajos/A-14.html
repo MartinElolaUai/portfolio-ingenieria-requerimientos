@@ -1,0 +1,52 @@
+<h2>Casos de uso, historias de usuario y escenarios</h2><p class="intro">Sobre el caso del TP integrador: Centro de Rehabilitación Kinésica «Equilibrio».</p><p><strong>HISTORIA DE USUARIO</strong></p>
+ <br>
+ <p>HU-01 — Asignar turno con agenda unificada</p>
+ <p>• Como recepcionista de la sede</p>
+ <p>• Quiero ver en una sola agenda la disponibilidad de profesionales, boxes y equipos de las dos sedes</p>
+ <p>• Con el fin de asignar turnos sin superposiciones ni duplicados</p>
+ <p>Criterios de aceptación</p>
+ <p>1. La agenda muestra ambas sedes y permite filtrar por sede, servicio, profesional y fecha.</p>
+ <p>2. Un horario ya reservado no puede asignarse a otro paciente para el mismo profesional, box o equipo.</p>
+ <p>3. Para pacientes con obra social, el turno solo se confirma con orden vigente, sesiones autorizadas disponibles y tope anual sin superar; de lo contrario se informa el motivo.</p>
+ <p>4. Al confirmar el turno, queda en estado «reservado» y se ve al instante desde la otra sede.</p>
+ <br>
+ <p><strong>CASO DE USO</strong></p>
+ <br>
+ <p>Título: CU-01 Iniciar sesión</p>
+ <p>Objetivo / postcondición: la Recepcionista queda autenticada con los permisos del rol Recepción y puede operar la agenda, los cobros y las autorizaciones de su sede, sin acceso al contenido clínico.</p>
+ <p>Precondición: la Recepcionista tiene un usuario dado de alta con el rol Recepción y una contraseña vigente.</p>
+ <p>Actor: Recepcionista.</p>
+ <p>Flujo Principal:</p>
+ <ol>
+  <li>La Recepcionista ingresa el usuario.</li>
+  <li>La Recepcionista ingresa la contraseña.</li>
+  <li>El sistema valida el usuario y la contraseña.</li>
+  <li>El sistema otorga el acceso a la Recepcionista con los permisos del rol Recepción.</li>
+ </ol>
+ <p>Flujo Alternativo:</p>
+ <ol>
+  <li>La Recepcionista ingresa el usuario.</li>
+  <li>La Recepcionista ingresa la contraseña.</li>
+  <li>El sistema rechaza el usuario o la contraseña.</li>
+  <li>El sistema muestra el mensaje “Usuario o contraseña incorrectos”.</li>
+  <li>La Recepcionista ingresa nuevamente el usuario y la contraseña.</li>
+  <li>El sistema valida el usuario y la contraseña.</li>
+  <li>El sistema otorga el acceso a la Recepcionista con los permisos del rol Recepción.</li>
+ </ol>
+ <br>
+ <p><strong>ESCENARIO</strong></p>
+ <br>
+ <p>Título: ESC-01 Asignar turno a paciente con obra social</p>
+ <p>Objetivo: reservar una sesión cubierta por la obra.</p>
+ <p>Contexto: el Paciente está afiliado a una obra social con convenio, tiene orden médica vigente y autorización con sesiones disponibles.</p>
+ <p>Actores: Paciente, Recepcionista.</p>
+ <p>Recursos: orden médica, autorización, convenio de la obra social, agenda unificada.</p>
+ <p>Episodios:</p>
+ <ol>
+  <li>El Paciente solicita un turno a la Recepcionista.</li>
+  <li>La Recepcionista verifica la orden médica y la autorización del Paciente.</li>
+  <li>La Recepcionista elige en la agenda unificada un horario con profesional y box disponibles.</li>
+  <li>La Recepcionista reserva el turno al Paciente.</li>
+  <li>La Recepcionista informa al Paciente el coseguro a abonar en la sesión.</li>
+ </ol>
+ <br><br>
