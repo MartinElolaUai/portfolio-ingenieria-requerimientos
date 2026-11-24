@@ -16,6 +16,7 @@
     if (!disponible(a)) return `<span class="badge b-pend">Pendiente de carga</span>`;
     let h = `<a class="btn primary" href="${verHref(a)}">${ICON.eye}Ver</a>`;
     if (a.doc) h += `<a class="btn" href="${a.doc}" download>${ICON.dl}PDF</a>`;
+    if (a.video) h += `<a class="btn" href="${verHref(a)}#video">${ICON.yt}Video</a>`;
     return h;
   };
 

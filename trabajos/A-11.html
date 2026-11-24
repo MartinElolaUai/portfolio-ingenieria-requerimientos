@@ -1,48 +1,22 @@
-<h2>Autoevaluación de cierre: Clase 11</h2><p class="intro">Respuestas de la autoevaluación individual sobre diccionario, glosario, ontología y LEL.</p><h3>1 · Diccionario, glosario y ontología</h3><p>Diccionario: </p>
- <p>ticket (tique)</p>
- <ol>
-  <li>Comprobante impreso que entrega un comercio &quot;x&quot; al cobrar una compra. </li>
-  <li>Boleta / Entrada que permite el ingreso a un evento o el uso de un servicio en particular. </li>
-  <li>Pedido registrado en un sistema de soporte para atender un problema o solicitud. </li>
- </ol>
+<h2>Uso del lenguaje natural en la especificación</h2><p class="intro">Respuestas a la ejercitación de la Clase 10.</p><h3>1 · Un término del dominio que generó ambigüedad</h3><p>Trabajando en un sistema de gestión de reclamos para una aseguradora, el término que más problemas me trajo fue “siniestro”. En el sentido común, un siniestro es una desgracia grave: un incendio, un choque fuerte, algo que sale en el noticiero. En seguros significa otra cosa. Siniestro es cualquier hecho cubierto por la póliza que obliga a la compañía a analizar si corresponde indemnizar, sin importar su gravedad. Un espejo retrovisor roto en un estacionamiento es un siniestro, y una inundación que arruina la casa no lo es si la póliza no cubre ese riesgo.</p>
  <br>
- <p>Glosario: </p>
- <p>Ticket: registro que se crea en el sistema de mesa de ayuda cada vez que un usuario informa un incidente o hace un pedido. Tiene un número único, se asigna a un técnico y pasa por distintos estados. Una consulta que se resuelve por teléfono en el momento y no queda registrada no es un ticket.</p>
+ <p>Al principio yo leía la palabra como sinónimo de accidente grave y modelé mal una regla, porque dejaba afuera los daños chicos. Era gap semántico puro: mismo idioma, distinto lenguaje. Lo corregimos armando la entrada al estilo LEL. En la noción quedó “hecho cubierto por la póliza que el asegurado denuncia dentro del plazo”; en el impacto, que abre un expediente, se le asigna un liquidador y termina en un pago o en un rechazo. De ahí en adelante usamos la palabra solo con ese significado.</p><h3>2 · Especificación original y reescrita</h3><p>Especificación original:</p>
  <br>
- <p>Ontología: </p>
- <p>Concepto: Ticket</p>
- <p>Es un tipo de: Solicitud de servicio</p>
- <p>Subtipos: Incidente (algo dejó de funcionar) y Pedido (alta de usuario, instalación de software, permiso de acceso)</p>
- <p>Atributos: número (único), fecha de apertura, descripción, prioridad (baja, media, alta o crítica), estado (abierto, en curso, resuelto o cerrado)</p>
- <p>Relaciones:</p>
- <ul>
-  <li>lo abre exactamente un Usuario</li>
-  <li>se asigna a ningún Técnico o a uno solopertenece a una Categoría</li>
-  <li>tiene cero o más Comentarios</li>
-  <li>puede vincularse con otros Tickets (es duplicado de, fue causado por)</li>
- </ul>
- <p>Restricciones: </p>
- <ul>
-  <li>un Ticket cerrado no se puede reasignar</li>
-  <li>todo Ticket resuelto tiene al menos un Comentario con la solución</li>
- </ul><h3>2 · Idioma, lenguaje y dialecto</h3><p>Idioma: lengua propia de un pueblo o nación, como el español o el inglés.</p>
+ <p>El sistema deberá permitir que el asegurado haga la denuncia del siniestro de forma rápida y sencilla, ya sea desde la web y/o la app, cargando los datos del hecho, fotos, etc. Una vez cargado el reclamo, se le avisará al productor y al área correspondiente para que lo revisen lo antes posible. Si el incidente es grave o el monto es alto, debería pasar a un supervisor. El caso no podrá cerrarse si falta documentación, salvo que se autorice. El asegurado tendrá que poder ver en todo momento cómo va su denuncia y el sistema debería mandarle notificaciones cuando haya novedades. Además, la información tiene que estar segura y solo la pueden ver las personas autorizadas. Los tiempos de respuesta del sistema deben ser adecuados.</p>
  <br>
- <p>Lenguaje: capacidad de comunicarse mediante un sistema de signos, que pueden ser palabras, gestos o símbolos.</p>
+ <p>Versión reescrita:</p>
  <br>
- <p>Dialecto: variedad de un idioma que se habla en una región determinada, como el español rioplatense.</p>
+ <p>Glosario</p>
  <br>
- <p>Argot: vocabulario propio de un grupo social o de una profesión, como la jerga de los médicos o el lunfardo.</p><h3>3 · LEL de una boletería</h3><p>Cliente (sujeto)</p>
- <p>Noción: persona que reserva y compra tickets.</p>
- <p>Impacto: reserva un ticket. Paga con tarjeta de crédito o paga en efectivo.</p>
- <br>
- <p>Pagar con tarjeta de crédito (verbo)</p>
- <p>Noción: el cliente paga el ticket con una tarjeta de crédito.</p>
- <p>Impacto: el sistema valida la tarjeta y registra el pago. El ticket reservado pasa a pagado.</p>
- <br>
- <p>Pagar en efectivo (verbo)</p>
- <p>Noción: el cliente paga el ticket en efectivo en la caja.</p>
- <p>Impacto: el cajero registra el pago y entrega el comprobante. El ticket reservado pasa a pagado.</p>
- <br>
- <p>Ticket reservado (estado)</p>
- <p>Noción: ticket que el cliente apartó y todavía no pagó.</p>
- <p>Impacto: nadie más puede comprarlo. Si el cliente no paga en el plazo, se libera.</p>
+ <p>Siniestro: hecho cubierto por la póliza que el asegurado informa a la aseguradora.</p>
+ <p>Denuncia: registro que el asegurado carga en el sistema para informar un siniestro.</p>
+ <p>Liquidador: empleado de la aseguradora que analiza la denuncia y decide si corresponde pagar.</p>
+ <p>RF-01. El sistema debe permitir al asegurado registrar una denuncia desde el sitio web y desde la aplicación móvil.</p>
+ <p>RF-02. La denuncia debe incluir fecha, hora, lugar y descripción del siniestro, número de póliza y hasta 10 fotos.</p>
+ <p>RF-03. Al registrarse una denuncia, el sistema debe asignarle un liquidador y avisarles por correo electrónico al liquidador y al productor.</p>
+ <p>RF-04. El sistema debe derivar la denuncia a un supervisor cuando el monto estimado supere $2.000.000 o cuando haya personas lesionadas.</p>
+ <p>RF-05. El sistema debe impedir el cierre de una denuncia con documentación incompleta, salvo que un supervisor registre una excepción indicando el motivo.</p>
+ <p>RF-06. El sistema debe mostrarle al asegurado el estado de cada denuncia: recibida, en análisis, aprobada, rechazada o pagada.</p>
+ <p>RF-07. El sistema debe avisarle al asegurado cada vez que cambie el estado de su denuncia.</p>
+ <p>RNF-01. Solo el asegurado titular, el productor, el liquidador asignado y los supervisores deben poder consultar una denuncia.</p>
+ <p>RNF-02. El sistema debe confirmar el registro de una denuncia en menos de 5 segundos en el 95% de los casos.</p>

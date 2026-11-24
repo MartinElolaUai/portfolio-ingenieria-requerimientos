@@ -17,6 +17,8 @@
     .vbar .t h1 { font: 400 24px/1.15 var(--serif); margin: 2px 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .vbar .sp { margin-left: auto; display: flex; gap: 8px; flex: none; }
     .pages { max-width: 920px; margin: 28px auto 80px; padding: 0 16px; display: grid; gap: 18px; }
+    .vid { max-width: 920px; margin: 28px auto 0; padding: 0 16px; }
+    .vid video { width: 100%; border-radius: 10px; background: #000; display: block; margin-top: 10px; box-shadow: 0 10px 40px rgba(0,0,0,.45); }
     .pages canvas { width: 100%; height: auto; display: block; background: #fff; border-radius: 6px; box-shadow: 0 10px 40px rgba(0,0,0,.45); }
     .doc { max-width: 820px; margin: 28px auto 80px; background: #f6f3ec; color: #1b1d20; border-radius: 10px; padding: 48px 56px; box-shadow: 0 10px 40px rgba(0,0,0,.45); font: 16px/1.65 var(--sans); }
     .doc h2 { font: 400 32px/1.15 var(--serif); margin: 28px 0 10px; } .doc h2:first-child { margin-top: 0; }
@@ -72,11 +74,13 @@
       return;
     }
     if (!a.doc) { view.innerHTML = '<p class="msg">Este trabajo todavía no está cargado.</p>'; return; }
+    const vid = a.video ? `<section class="vid" id="video"><p class="kicker">Video de la exposición</p><video controls preload="metadata" playsinline poster="${a.poster || ''}" src="${a.video}"></video></section>` : "";
     try {
       pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
       const pdf = await pdfjsLib.getDocument(a.doc).promise;
       const wrap = document.createElement("div"); wrap.className = "pages";
-      view.replaceChildren(wrap);
+      view.innerHTML = vid; view.appendChild(wrap);
+      if (location.hash === "#video") document.getElementById("video")?.scrollIntoView();
       const ratio = Math.min(window.devicePixelRatio || 1, 2);
       for (let p = 1; p <= pdf.numPages; p++) {
         const page = await pdf.getPage(p);
@@ -90,7 +94,7 @@
         await page.render({ canvasContext: c.getContext("2d"), viewport: vp }).promise;
       }
     } catch (e) {
-      view.innerHTML = `<p class="msg">No se pudo mostrar el PDF en el navegador. <a href="${a.doc}">Abrilo o descargalo acá</a>.</p>`;
+      view.innerHTML = vid + `<p class="msg">No se pudo mostrar el PDF en el navegador. <a href="${a.doc}">Abrilo o descargalo acá</a>.</p>`;
     }
   })();
   </script>
