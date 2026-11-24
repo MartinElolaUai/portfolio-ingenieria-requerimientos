@@ -36,7 +36,6 @@
   $("#pipeline").innerHTML = tps.map((a, i) => `
     <li data-step="${i + 1}">
       <h4>${esc(a.titulo)}</h4>
-      <p>${esc(a.resumen)}</p>
       <div class="row">${acciones(a)}<span class="date">${a.id} · ${fecha(a.fecha)}</span></div>
     </li>`).join("");
   $("#episodes").innerHTML = EPISODIOS.map((e) => `

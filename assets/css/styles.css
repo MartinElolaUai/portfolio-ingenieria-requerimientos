@@ -121,7 +121,7 @@ h1, h2, h3 { font-weight: 400; margin: 0; }
 .pipeline li { position: relative; border: 1px solid var(--line); border-radius: 14px; padding: 18px 18px 18px 64px; background: var(--panel); }
 .pipeline li::before { content: attr(data-step); position: absolute; left: 16px; top: 16px; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font: 600 13px var(--mono); background: var(--coral); color: #1a0f0b; }
 .pipeline li:not(:last-child)::after { content: ""; position: absolute; left: 32px; top: 52px; bottom: -14px; width: 2px; background: var(--line-2); }
-.pipeline h4 { margin: 0 0 4px; font: 600 15.5px var(--sans); }
+.pipeline h4 { margin: 6px 0 14px; font: 600 15.5px var(--sans); }
 .pipeline p { margin: 0 0 12px; font-size: 14px; color: var(--ink-2); }
 .pipeline .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
 .pipeline .date { font: 12px var(--mono); color: var(--muted); margin-left: auto; }
