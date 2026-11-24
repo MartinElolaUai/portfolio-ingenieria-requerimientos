@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css?v=6">
+  <link rel="stylesheet" href="assets/css/styles.css?v=7">
   <script>document.documentElement.classList.add("m-enter")</script>
 </head>
 <body>
@@ -26,11 +26,11 @@
     <a class="skip-link" href="#top">Saltar al contenido</a>
     <a class="logo" href="#top" aria-label="Inicio"><span class="mark--initial">IR</span><span class="name-full">Martín Elola</span></a>
     <ul class="nav__links">
-      <li><a href="#tp">TP integrador</a></li>
+      <li><a href="#individuales">Individuales</a></li>
+      <li><a href="#grupales">Grupales</a></li>
       <li><a href="#podcast">Podcast</a></li>
-      <li><a href="#actividades">Actividades</a></li>
     </ul>
-    <a class="btn btn--primary" href="#actividades">Ver los trabajos</a>
+    <a class="btn btn--primary" href="#individuales">Ver los trabajos</a>
   </div>
 </header>
 
@@ -39,9 +39,9 @@
     <div class="wrap">
       <div data-enter>
         <h1>Portfolio de Ingeniería de Requerimientos</h1>
-        <p class="hero__lead">Martín Federico Elola, Ingeniería en Sistemas Informáticos en la UAI. Reúne los 19 trabajos del segundo cuatrimestre de 2026: 16 actividades de clase y las 3 entregas del TP integrador.</p>
+        <p class="hero__lead">Martín Federico Elola, Ingeniería en Sistemas Informáticos en la UAI. Reúne los 19 trabajos del segundo cuatrimestre de 2026: 10 individuales y 9 grupales, entre ellos las 3 entregas del TP integrador.</p>
         <div class="btn-row">
-          <a class="btn btn--primary" href="#actividades">Ver los trabajos</a>
+          <a class="btn btn--primary" href="#individuales">Ver los trabajos</a>
           <a class="btn btn--secondary" href="#podcast">Escuchar el podcast</a>
         </div>
         <dl class="facts">
@@ -57,33 +57,41 @@
     </div>
   </section>
 
-  <section id="tp" class="alt">
+  <section id="individuales" class="alt">
     <div class="wrap">
       <div class="head">
-        <h2 class="h2">TP integrador sobre el Centro «Equilibrio»</h2>
-        <p class="sub">Sistema de gestión para un centro de rehabilitación kinésica con dos sedes. Lo hicimos en grupo y en tres entregas, del dominio a la especificación.</p>
+        <h2 class="h2">Trabajos individuales</h2>
+        <p class="sub">Actividades de clase, investigaciones y tres entrevistas simuladas con inteligencia artificial.</p>
       </div>
-      <div class="cards cards--3" id="entregas"></div>
-      <p class="team" id="team"></p>
+      <ol class="rows" id="lista-ind"></ol>
     </div>
   </section>
 
-  <section id="podcast">
+  <section id="grupales">
+    <div class="wrap">
+      <div class="head">
+        <h2 class="h2">Trabajos grupales</h2>
+        <p class="sub" id="team"></p>
+      </div>
+      <div class="block">
+        <h3 class="h3">TP integrador sobre el Centro «Equilibrio»</h3>
+        <p class="block__sub">Sistema de gestión para un centro de rehabilitación kinésica con dos sedes, en tres entregas: del dominio a la especificación.</p>
+        <div class="cards cards--3" id="entregas"></div>
+      </div>
+      <div class="block">
+        <h3 class="h3">Actividades de clase</h3>
+        <ol class="rows" id="lista-grp"></ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="podcast" class="alt">
     <div class="wrap">
       <div class="head">
         <h2 class="h2">«Podcast del Ingeniero», dos episodios</h2>
         <p class="sub">Cada entrega del TP se presentó también como un episodio de unos seis minutos, con la voz de los cinco integrantes.</p>
       </div>
       <div class="cards cards--2" id="episodios"></div>
-    </div>
-  </section>
-
-  <section id="actividades" class="alt">
-    <div class="wrap">
-      <div class="head">
-        <h2 class="h2">Actividades de la cursada. <span class="muted">De la clase 1 a la 14.</span></h2>
-      </div>
-      <ol class="rows" id="lista"></ol>
     </div>
   </section>
 </main>
@@ -95,13 +103,13 @@
       <p style="margin-top: var(--s-3)">Ingeniería de Requerimientos · Universidad Abierta Interamericana, Facultad de Tecnología Informática</p>
     </div>
     <div class="btn-row" style="justify-content: flex-start">
-      <a class="link" href="#actividades">Volver a los trabajos</a>
+      <a class="link" href="#top">Volver al inicio</a>
     </div>
     <div class="legal"><span>Segundo cuatrimestre 2026 · Prof. Marcela Samela</span><span>Portadas del podcast generadas con inteligencia artificial</span></div>
   </div>
 </footer>
 
-<script src="assets/js/data.js?v=6"></script>
-<script src="assets/js/app.js?v=6"></script>
+<script src="assets/js/data.js?v=7"></script>
+<script src="assets/js/app.js?v=7"></script>
 </body>
 </html>

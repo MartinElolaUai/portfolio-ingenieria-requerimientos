@@ -3,7 +3,6 @@
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const fecha = (iso) => { const [y, m, d] = iso.split("-"); return `${d}/${m}/${y}`; };
   const ver = (a) => `ver.html?id=${encodeURIComponent(a.id)}`;
-  const tipo = (a) => (a.categoria === "simulacion" ? "Individual, con IA" : a.tipo === "grupal" ? "Grupal" : "Individual");
 
   // TP integrador
   const tps = ARTEFACTOS.filter((a) => a.categoria === "tp");
@@ -15,7 +14,7 @@
         <a class="btn btn--secondary" href="${ver(a)}">Ver la entrega</a>
       </div>
     </article>`).join("");
-  $("#team").innerHTML = `<span class="label">Grupo 9</span><br>${GRUPO.map(esc).join(", ")}`;
+  $("#team").textContent = `Con el Grupo 9: ${GRUPO.join(", ")}.`;
 
   // Podcast
   const yt = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
@@ -33,18 +32,20 @@
       </div>
     </article>`).join("");
 
-  // Actividades
-  const lista = ARTEFACTOS.filter((a) => a.categoria !== "tp");
-  $("#lista").innerHTML = lista.map((a) => `
+  // Actividades, separadas en individuales y grupales
+  const fila = (a) => `
     <li class="row">
       <p class="row__when">Clase ${a.clase}<br>${fecha(a.fecha)}</p>
       <div>
         <p class="row__title">${esc(a.titulo)}</p>
-        <p class="row__meta">${tipo(a)} · Unidad ${a.unidad}</p>
+        <p class="row__meta">${a.categoria === "simulacion" ? "Con IA · " : ""}Unidad ${a.unidad}</p>
       </div>
       <div class="row__acts">
         <a class="btn btn--secondary" href="${ver(a)}" aria-label="Ver el trabajo: ${esc(a.titulo)}">Ver trabajo</a>
         ${a.video ? `<a class="btn btn--secondary" href="${ver(a)}#video" aria-label="Ver el video: ${esc(a.titulo)}">Ver video</a>` : ""}
       </div>
-    </li>`).join("");
+    </li>`;
+  const acts = ARTEFACTOS.filter((a) => a.categoria !== "tp");
+  $("#lista-ind").innerHTML = acts.filter((a) => a.tipo !== "grupal").map(fila).join("");
+  $("#lista-grp").innerHTML = acts.filter((a) => a.tipo === "grupal").map(fila).join("");
 })();
